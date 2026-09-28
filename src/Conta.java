@@ -2,25 +2,24 @@ public class Conta {
 
     //Atributos
 
-    String titular,email,cpf;
-    int dataCadastro;
-    double saldo,saque,deposito;
+    private String titular,email,cpf,dataCadastro;
+    private double saldo,saque,deposito;
 
     //Contrutores
 
-    public Conta(String titular, String email, String cpf,int dataCadastro){
+    public Conta(String titular, String email, String cpf,String dataCadastro,double saldo){
         this.titular = titular;
         this.email = email;
         this.cpf = cpf;
         this.dataCadastro = dataCadastro;
-    }
-
-    public Conta(String titular, double saldo){
-        this.titular = titular;
         this.saldo = saldo;
     }
 
     //Metodos de exibição
+
+    public void exibirSaldoAtual(){
+        System.out.println("Seu saldo atual é: " + saldo);
+    }
 
     public void exibirDado(){
         System.out.println("Dados da conta do titular");
@@ -41,8 +40,11 @@ public class Conta {
         return saldo;
     }
 
-    //Metodos get e set
+    public double deposito(double saldo){
+        return (saldo += deposito);
+    }
 
+    //Metodos get e set
 
     public String getTitular(){
         return titular;
@@ -68,11 +70,11 @@ public class Conta {
         this.cpf = cpf;
     }
 
-    public int getDataCadastro(){
+    public String getDataCadastro(){
         return dataCadastro;
     }
 
-    public void setDataCadastro(int dataCadastro){
+    public void setDataCadastro(String dataCadastro){
         this.dataCadastro = dataCadastro;
     }
 }
