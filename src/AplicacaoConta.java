@@ -55,9 +55,14 @@ public class AplicacaoConta {
                 double saldo = sc.nextDouble();
                 
                 ContaEncontrada.exibirSaldoAtual();
-            } else if () {
-                
+            } else if (opcao == 4){
+                System.out.println("Exibindo os dados da conta: ");
+
+                ContaEncontrada.exibirDado();
+            } else {
+                System.out.println("Opção invalida");
             }
+            sc.close();
         }
 
 
