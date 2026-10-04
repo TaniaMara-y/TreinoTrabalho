@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class Conta {
 
     //Atributos
@@ -17,8 +19,9 @@ public class Conta {
 
     //Metodos de exibição
 
-    public void exibirSaldoAtual(){
-        System.out.println("Seu saldo atual é: " + saldo);
+    public void exibirSaldoAtual() {
+        System.out.println("Seu saldo atual é: " +
+                String.format(new Locale("pt", "BR"), "R$ %,.2f", saldo));
     }
 
     public void exibirDado(){
@@ -29,20 +32,19 @@ public class Conta {
         System.out.println("Data do cadastro: " + dataCadastro);
     }
 
-    public double saque(double saldo){
-        if (saldo <= 0){
-            return saldo;
+    public void saque(double valor){
+        if (valor <= 0){
+            return;
         }
-        if (saque > saldo){
-            return saldo;
+        if (valor > saldo){
+            return;
         }
-        saldo -= saque;
-        return saldo;
+        saldo -= valor;
+        System.out.println("Valor sacado com sucesso ");
+        exibirSaldoAtual();
     }
 
-    public double deposito(double saldo){
-        return (saldo += deposito);
-    }
+    public void deposito(double valor){saldo += valor; }
 
     //Metodos get e set
 
